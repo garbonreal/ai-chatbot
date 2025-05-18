@@ -1,5 +1,5 @@
 import React from "react";
-import nestyChatLogo from "../../assets/nesty.svg";
+import NestyChatLogo from "../../assets/nesty.svg";
 import styled from "styled-components";
 import { showNestyChatAtom } from "../../states";
 import { useRecoilState } from "recoil";
@@ -37,9 +37,9 @@ function NestyChatBubble() {
   const [showNestyChat, setShowNestyChat] = useRecoilState(showNestyChatAtom);
 
   return (
-    <NestyChatButton $showNestytChat={showNestyChat} size="large" onClick={(e) => setShowNestyChat(true)}>
+    <NestyChatButton $showNestytChat={showNestyChat} size="large" onClick={(e) => setShowNestyChat("min")}>
       <p>Ask Nesty</p>
-      <img src={nestyChatLogo} height={30} width={30} />
+      <img src={NestyChatLogo} height={30} width={30} />
     </NestyChatButton>
   );
 }

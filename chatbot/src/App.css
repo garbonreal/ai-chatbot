@@ -1,35 +1,88 @@
-.app-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('./assets/background.jpg');
+* {
+  scrollbar-color: #888 transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('/public/background.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  z-index: -1;
-}
-
-.chatbot-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  cursor: pointer;
-  width: 60px;
-  height: 60px;
-  z-index: 10;
-}
-
-.chat-window {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  width: 300px;
-  max-height: 400px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
-  z-index: 10;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.441rem;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 1.953rem;
+  line-height: 2.5rem;
+}
+
+h3 {
+  font-size: 1.563rem;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+p {
+  margin: 1rem 0 1rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#root {
+  height: 100vh;
+}
+
+html {
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 958px) {
+}
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 14px;
+  }
 }

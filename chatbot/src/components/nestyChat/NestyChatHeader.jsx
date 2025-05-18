@@ -1,5 +1,5 @@
 import React from "react";
-import WealthyPlanetIcon from "/src/assets/nesty.svg";
+import Icon from "/src/assets/nesty.svg";
 import minimizerIcon from "/src/assets/minimize.svg";
 import maximizerIcon from "/src/assets/maximize.svg";
 import closeIcon from "/src/assets/close.svg";
@@ -22,8 +22,8 @@ const IconContainer = styled.div`
 `;
 
 const NestyChatHeaderIcon = styled.img`
-  height: ${({ theme }) => theme.spacings[11]};
-  width: ${({ theme }) => theme.spacings[11]};
+  height: ${({ theme }) => theme.spacings[8]};
+  width: ${({ theme }) => theme.spacings[8]};
   padding: ${({ theme }) => theme.spacings[3]};
   cursor: pointer;
   transition: ${({ theme }) => theme.transitions.all};
@@ -37,15 +37,15 @@ function NestyChatHeader() {
 
   return (
     <NestyChatHeaderStyle>
-      <img style={{ height: "32px" }} src={WealthyPlanetIcon} />
+      <img style={{ height: "32px" }} src={Icon} />
       {showNestyChat === "min" ? (
         <div>
-          <h5>Nesty - Smart Financial Assistant</h5>
+          <h4>Nesty - Smart Website Assistant</h4>
           <h5 style={{ fontWeight: "400" }}>Available 24/7</h5>
         </div>
       ) : (
         <div>
-          <h4>Nesty - Smart Financial Assistant</h4>
+          <h3>Nesty - Smart Website Assistant</h3>
           <h5 style={{ fontWeight: "400" }}>Available 24/7</h5>
         </div>
       )}

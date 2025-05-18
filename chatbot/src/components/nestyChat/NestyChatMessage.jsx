@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import WealthyPlanetIcon from "/src/assets/nesty.svg";
+import Icon from "/src/assets/nesty.svg";
 import TopVectorTipBlue from "../../assets/top-vector-tip-blue.svg";
 import TopVectorTipGrey from "../../assets/top-vector-tip-grey.svg";
 
@@ -30,7 +30,7 @@ const MessageBubble = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.spacings[1]};
   flex-direction: column;
-  max-width: 100%;
+  max-width: 90%;
   color: ${({ theme, $sender }) => ($sender === "Nesty" ? theme.colors.black : theme.colors.white)};
   & > h5 {
     text-align: right;
@@ -74,12 +74,12 @@ const NestyChatMessage = ({ sender, message, time }) => {
       <MessageContainer>
         {sender === "Nesty" ? (
           <NestyMessageContainer>
-            <img style={{ height: "32px" }} src={WealthyPlanetIcon} alt="Wealthy Planet Icon" />
+            <img style={{ height: "32px" }} src={Icon} alt="Icon" />
             <img style={{ transform: "translateX(1px)" }} src={TopVectorTipGrey} />
             <MessageBubble $sender={sender}>
               <MessageBubbleNestyHeader>
                 <h5>Nesty</h5>
-                <h6>Smart Financial Assistant</h6>
+                <h6>Smart Website Assistant</h6>
               </MessageBubbleNestyHeader>
               <p>
                 {message.split("\n").map((line, index) => (

@@ -8,7 +8,6 @@ import {
   nestyChatMessageHistoryAtom,
   nestyChatErrorAtom,
   showNestyChatAtom,
-  authAtom,
 } from "../../states";
 import { getFormattedTime, getDateProto, parseDateProto } from "../../util";
 
@@ -31,7 +30,7 @@ const NestyChatInputContainer = styled.div`
 const NestyChatInputPaperAirplane = styled.img`
   align-self: center;
   cursor: pointer;
-  height: ${({ theme }) => theme.spacings[11]};
+  height: ${({ theme }) => theme.spacings[10]};
   padding: ${({ theme }) => theme.spacings[3]};
   transition: ${({ theme }) => theme.transitions.all};
   &:hover {
@@ -46,7 +45,6 @@ function NestyChatInput() {
   const setMessages = useSetRecoilState(nestyChatMessageHistoryAtom);
   const [isNestyChatThinking, setIsNestyChatThinking] = useRecoilState(isNestyChatThinkingAtom);
   const setNestyChatError = useSetRecoilState(nestyChatErrorAtom);
-  const auth = useRecoilValue(authAtom);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value); // Update the state with the new input value
@@ -60,7 +58,7 @@ function NestyChatInput() {
 
   const handleSend = async () => {
     if (isNestyChatThinking || inputValue.trim() === "") return;
-    const today = auth?.currentDate ? parseDateProto(auth.currentDate) : new Date();
+    const today = new Date();
     try {
       setNestyChatError("");
       setMessages((prev) => [

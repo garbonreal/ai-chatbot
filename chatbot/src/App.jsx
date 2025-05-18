@@ -1,13 +1,22 @@
 import React from "react";
 import "./App.css";
 import Chatbot from "./components/nestyChat/NestyChat";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <div className="app-background">
+    <div>
       <Chatbot />
     </div>
   );
-}
+};
 
-export default App;
+export const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />} />
+  )
+);
