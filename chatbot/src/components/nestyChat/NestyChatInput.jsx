@@ -40,7 +40,7 @@ const NestyChatInputPaperAirplane = styled.img`
 
 function NestyChatInput() {
   const [inputValue, setInputValue] = useState(""); // State to hold the input value
-  const nestyChatActions = useNestyChatActions();
+  const NestyChatActions = useNestyChatActions();
   const showNestyChat = useRecoilValue(showNestyChatAtom);
   const setMessages = useSetRecoilState(nestyChatMessageHistoryAtom);
   const [isNestyChatThinking, setIsNestyChatThinking] = useRecoilState(isNestyChatThinkingAtom);
@@ -77,7 +77,7 @@ function NestyChatInput() {
         ...prev,
         {
           sender: "Nesty",
-          message: response.answer,
+          message: response.message.content,
           time: getFormattedTime(today),
         },
       ]);
