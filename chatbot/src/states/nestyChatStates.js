@@ -4,7 +4,7 @@ import { getFormattedTime } from "../util";
 // Atom for showing/hiding the chatbot
 export const showNestyChatAtom = atom({
   key: "showNestyChatAtom",
-  default: "max", // either close, min, or max
+  default: "min", // either close, min, or max
 });
 
 // Atom to store the history of messages
