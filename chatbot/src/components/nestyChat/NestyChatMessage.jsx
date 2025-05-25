@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useRecoilValue } from "recoil";
 import styled, { keyframes } from "styled-components";
 import Icon from "/src/assets/nesty.svg";
 import TopVectorTipBlue from "../../assets/top-vector-tip-blue.svg";
 import TopVectorTipGrey from "../../assets/top-vector-tip-grey.svg";
+import { urlMapAtom } from "../../states";
+import { useLoadUrlMap } from "./UrlMap";
 
 const MessageContainer = styled.div`
   display: flex;
@@ -68,33 +71,28 @@ const AnimatedMessage = styled.div`
   animation: ${fadeIn} 0.15s ease-out;
 `;
 
+const Reference = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  font-size: 0.95rem;
 
-const urlMapPath = "../../../public/url_map.txt"
+  a {
+    margin-left: 4px;
+    text-decoration: none;
+  }
+
+  span.reference-label {
+    margin-right: 4px;
+    font-weight: bold;
+  }
+`;
 
 const NestyChatMessage = ({ sender, message, time, source = [] }) => {
-  const [urlMap, setUrlMap] = useState({});
-
-  useEffect(() => {
-    const fetchUrlMap = async () => {
-      try {
-        const res = await fetch(urlMapPath);
-        const text = await res.text();
-        const lines = text.split("\n");
-        const map = {};
-        lines.forEach((line) => {
-          const [key, val] = line.split(" ").map((s) => s.trim());
-          if (key && val) {
-            map[key] = val;
-          }
-        });
-        setUrlMap(map);
-      } catch (err) {
-        console.error("Failed to load url_map.txt", err);
-      }
-    }
-
-    fetchUrlMap();
-  }, []);
+  useLoadUrlMap();
+  const urlMap = useRecoilValue(urlMapAtom);
+  console.log("urlMap", urlMap); 
 
   return (
     <AnimatedMessage>
@@ -119,16 +117,19 @@ const NestyChatMessage = ({ sender, message, time, source = [] }) => {
               
               {source.length > 0 && (
                 <div>
-                  <h5>Sources:</h5>
-                  <ul>
+                  <Reference>
+                    <span className="reference-label">References:</span>
                     {source.map((item, index) => (
-                      <li key={index}>
-                        <a href={urlMap[item]} target="_blank" rel="noopener noreferrer">
-                          {item}
-                        </a>
-                      </li>
+                      <a
+                        key={index}
+                        href={urlMap[item]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        [{index + 1}]
+                      </a>
                     ))}
-                  </ul>
+                  </Reference>
                 </div>
               )}
 

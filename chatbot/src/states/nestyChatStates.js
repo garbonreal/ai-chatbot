@@ -32,3 +32,8 @@ export const nestyChatErrorAtom = atom({
   key: "nestyChatErrorAtom",
   default: "",
 });
+
+export const urlMapAtom = atom({
+  key: "urlMapAtom",
+  default: {},
+});

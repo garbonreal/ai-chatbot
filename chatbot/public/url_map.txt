@@ -19,3 +19,4 @@ extraaz-layers-mint-chocolate-chip-ice-cream.html https://www.haagen-dazs.ca/en/
 haagen-dazs-signup_1.html https://www.haagen-dazs.ca/en/hd-en/haagen-dazs-signup#main-content
 hd-en_1.html https://www.haagen-dazs.ca/en/hd-en#about
 hd-en_2.html https://www.haagen-dazs.ca/en/hd-en#main-content
+maggi.html https://www.haagen-dazs.ca/en/haagen-dazs/extraaz-layers-salted-caramel-chocolate-ice-cream

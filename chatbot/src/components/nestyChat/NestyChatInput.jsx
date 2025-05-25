@@ -85,13 +85,23 @@ function NestyChatInput() {
       }) ?? [];
 
       const uniqueSources = [...new Set(sourceFiles)];
+
+      const citationMap = uniqueSources.reduce((acc, src, idx) => {
+        acc[src] = idx + 1;
+        return acc;
+      }, {});
+
+      const renderedMessage = response.message.content.replace(/\[([^\]]+?)\]/g, (match, file) => {
+        const number = citationMap[file];
+        return number ? `[${number}]` : match;
+      });
       
       setIsNestyChatThinking(false);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          content: response.message.content,
+          content: renderedMessage,
           source: uniqueSources,
           time: getFormattedTime(today),
         },
